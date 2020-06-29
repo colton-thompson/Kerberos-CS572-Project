@@ -1,0 +1,33 @@
+Here is the list of files in this directory:
+
+packet_header.h     -- defines the format of the packets. It should not be changed. 
+aes_func.c          -- implements encryption and decryption function of AES_CBC.
+                       It should not be changed. 
+enc_dec_example.c   -- shows how to use the encryption and decryption functions of AES.
+client.c            -- A client program that gets credential from the authentication server and then
+                            connects to the server. Before it communicates with the server, it must
+                            first authenticate itself.
+server.c            -- A server program that receives input and validates users before sending messages
+authserver.c        -- A server program that authenticates the client
+
+To compile:  
+make
+Note: If there is any compile-time error, you may need to install openssl first: (on Ubuntu VM)
+sudo apt-get install libssl-dev
+
+
+To run:
+    - First run the two servers with the following input
+        - server:       ./server <server port> <serverkey>
+        - authsever:    ./authserver <authserverport> <clientID> <clientkey> <serverID> <serverkey>
+    - Then run the clien with the following input
+        - client:       ./client <authservername> <authserverport> <clientkey> <server name> <server port> <clientID> <serverID>
+
+
+To run the client and the servers on the same machine:
+    - Open 3 separate terminals
+    - Use the commands from above to execute 
+    - Note, order is important as the servers need to be running before the client
+
+Note, I collaborated with my peers Lauren Bassett and Brian Bruns. We all had our own troubles initially, but by collaborating we were 
+    able to work through common problems and help each other better understand aspects of the project.
